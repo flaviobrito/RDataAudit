@@ -12,7 +12,7 @@
 #' check_missing_all(d)
 #'
 
-check_missing_all <- function(dframe){
-  lapply(dframe,function(x)(which(is.na(x))))
+check_missing_all <- function(d_frame){
+  lapply(d_frame,function(x)(which(is.na(x))))
 }
 

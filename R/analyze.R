@@ -1,45 +1,27 @@
 analyze <- function(d_frame){
-  cat("============================","\n")
-  cat("=      Analyzing Data      =","\n")
-  cat("============================","\n\n\n")
-  cat("============================","\n\n\n")
-  cat("===== Data Dimensions ======","\n\n\n")
-  cat("============================","\n\n\n")
+  header("Analyzing Data","=")
+  header("Data Dimensions ","=")
   cat("Number of columns:",ncol(d_frame),"\n\n")
   cat("Number of rows:",nrow(d_frame),"\n\n")
-  cat("Name of columns:",colnames(d_frame),"\n\n")
-  cat("============================","\n\n")
-  cat("Number os Missing Values per Column","\n")
-  cat("============================","\n\n")
-  print(colSums(is.na(d)))
-  cat("============================","\n\n\n")
-  cat("\n")
-  cat("Colum types","\n")
+  header("Name of columns","=")
+  cat(colnames(d_frame), "\n")
+  header("Number os Missing Values per Column","=")
+  print(colSums(is.na(d_frame)))
+  header("Column types","=")
   print(sapply(d_frame, typeof))
-  cat("============================","\n\n\n")
-  cat("\n")
-  cat("Missing Values by columns:","\n")
+  header("Number of levels by columns","=")
+  print(sapply(d_frame,nlevels))
+  header("Missing Values by columns","=")
   print(check_missing_all(d_frame))
-  cat("============================","\n\n\n")
-  cat("List rows of data that have a missing value","\n")
+  header("List rows of data that have a missing value","=")
   print(d_frame[!complete.cases(d_frame),])
+
 }
 
-str(d)
-a <- c(1,5,3,10)
-b <- c("A","B","B","D")
-e <- c(5,6,NA,8)
-d <- data.frame(a,b,e)
-d
 
-zzz<-d[sapply(d,is.numeric)]
-
-colMeans(zzz,na.rm = TRUE)
-
-by(d$a,b, function(x) mean(x,na.rm = TRUE))
-
-   analyze(d)
-
+sink("out.txt", append=FALSE, split=FALSE)
+analyze(flights)
+sink()
 
 
 

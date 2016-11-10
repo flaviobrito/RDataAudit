@@ -7,9 +7,9 @@ summarize <- function(x){
   result <- list(center=center,spread=spread)
   }
 
-summarize(d$a)
+summarize(flights$AirTime)
 
-
+summary(flights)
 
 
 

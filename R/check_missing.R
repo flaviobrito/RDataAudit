@@ -13,7 +13,7 @@
 #' check_missing(d,a)
 #'
 
-check_missing <- function(dframe, attribute){
+check_missing <- function(d_frame, attribute){
   list_NA <- which(is.na(attribute))
   return(list_NA)
 }
