@@ -19,9 +19,9 @@ analyze <- function(d_frame){
 }
 
 
-sink("out.txt", append=FALSE, split=FALSE)
-analyze(flights)
-sink()
+# sink("out.txt", append=FALSE, split=FALSE)
+# analyze(flights)
+# sink()
 
 
 
